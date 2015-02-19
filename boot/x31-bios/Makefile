@@ -16,6 +16,5 @@ $(X31_DIR)/1QUJ08US.IMG: $(X31_DIR)/1qhj08us.exe
 	cd $(X31_DIR) && cabextract -F $(notdir $@) $(notdir $<)
 	touch $@
 
-x31: $(X31_DIR)/1QUJ19US.IMG $(X31_DIR)/1QUJ08US.IMG
-
-TARGETS += x31
+X31_FILES = 1QUJ08US.IMG 1QUJ19US.IMG README.md syslinux.cfg
+FILES += $(patsubst %,$(X31_DIR),$(X31_FILES))
