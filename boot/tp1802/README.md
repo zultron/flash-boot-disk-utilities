@@ -1,8 +1,10 @@
-Thinkpad WiFi Patchset
+# Thinkpad WiFi Patchset
 
-For more information:
+For more information see [thinkwiki.org] and [command-tab.com]
 
+[thinkwiki.org]:
 http://www.thinkwiki.org/wiki/Problem_with_unauthorized_MiniPCI_network_card
+[command-tab.com]:
 http://www.command-tab.com/2006/02/26/thinkpad-1802-error-fix/
 
 Use this program to get rid of the following boot errors:
@@ -13,13 +15,14 @@ Use this program to get rid of the following boot errors:
     01C9  More than one Ethernet devices are found. 
     Remove one of them and press the Esc key to continue.
 
-1. - Remove the card if you can't get around the 1802 error
-   - Boot this program and apply the CMOS patch
+- Patch the BIOS
+  - Remove the card if you can't get around the 1802 error
+  - Boot this program and apply the CMOS patch
 
-2. Atheros cards only:
-   - If encountering the 01C9 warning with card reinserted, boot again
-   - Select "No" at the 1802 patch prompt.
-   - The software will auto detect your Atheros card and patch it.
+- Patch Atheros WiFi cards only:
+  - If encountering the 01C9 warning with card reinserted, boot again
+  - Select "No" at the 1802 patch prompt.
+  - The software will auto detect your Atheros card and patch it.
 
 Warning! These patches directly modify your hardware.
 Use at your own risk!!
