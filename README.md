@@ -8,30 +8,14 @@ http://www.syslinux.org/wiki/index.php/HowTos#How_to_Create_a_Bootable_USB:_For_
 # Create bootable USB flash drive
 
 - Flash drive must be formatted with `FAT` filesystem
-- On Ubuntu, need `syslinux` and `mtools` packages
+- The `syslinux` and `mtools` packages are required
+- The `cabextract` utility must be available; from RPMFusion on Fedora
 - Insert flash drive and run the following commands
 
-```
-# Check these are correct
-DISK=/dev/sdX               # Flash drive
-MOUNT_POINT=/mnt/tmp        # Mount point for flash drive
-SOURCES=$(pwd)              # The directory containing this file
-# Ubuntu:
-SYSLINUX=/usr/lib/syslinux
-# Fedora:
-#SYSLINUX=/usr/share/syslinux
+To install, simply cd to this directory, and run `make` with the
+following variables set; customize as needed:
 
-# Set up bootable flash drive
-sudo syslinux -i ${DISK}1
-sudo dd conv=notrunc bs=440 count=1 if=${SYSLINUX}/mbr.bin of=${DISK}
-sudo cp ${SYSLINUX}/memdisk ${MOUNT_POINT}/boot
-sudo parted ${DISK} set 1 boot on
-
-# Copy these sources to flash drive
-sudo mount ${DISK}1 ${MOUNT_POINT}
-sudo cp -R ${SOURCES}/* ${MOUNT_POINT}
-sudo umount ${MOUNT_POINT}
-```
+    make DISK=/dev/sdX DEST_DIR=/mnt/tmp
 
 # Utilities
 
